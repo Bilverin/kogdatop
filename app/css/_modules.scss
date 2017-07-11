@@ -44,27 +44,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown {
 	&-mobile {
-		color: #edecec; font-weight: 700; line-height: 12px; font-size: 13px; font-family: Helvetica, sans-serif; letter-spacing: 0.1px; text-transform: uppercase;
-		margin-bottom: 5px; display: none; position: relative; margin-left: 15px;
-		@include respond-to(sm) {display: inline-block;}
+		color: #edecec; font-weight: 700; line-height: 12px; font-size: 13px; font-family: Helvetica, sans-serif; letter-spacing: 0.1px; text-transform: uppercase; text-align: center;
+		margin-bottom: 5px; display: none; position: relative; padding: 10px 15px;
+		border: solid 2px #edecec; border-radius: 4px;
+		@include respond-to(sm) {display: block;}
 		&:focus {
 			color: #edecec;
 			outline: none;
 		}
-		&:after {
-			content: '\f0d7';
-			font: normal normal normal 14px/1 FontAwesome; font-size: inherit;
-			display: inline-block; position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
-			text-rendering: auto;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
+		&:hover {
+			color: #46b3d6;
+			background: #edecec;
 		}
 		&.active {
-			&:after {
-				content: '\f0d8';
-			}
+			color: #46b3d6;
+			background: #edecec;
 		}
 	}
+}
+
+.nav-mobile {
+	display: none;
+	@include respond-to(sm) {display: block;}
 }
 
 
@@ -73,6 +74,9 @@ h1, h2, h3, h4, h5, h6 {
 /*********************************/
 .breadcrumbs {
 	margin-bottom: 4px;
+	@include respond-to(sm) {
+		margin-bottom: 15px;
+	}
 	li {
 		display: inline-block; position: relative; padding-right: 20px;
 		&:after {
@@ -351,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
 			margin-bottom: 8px;
 			overflow: hidden;
 			@include respond-to(sm) {
-				text-align: left;
+				font-size: 15px; text-align: left;
 			}
 		}
 		ul {
@@ -363,6 +367,9 @@ h1, h2, h3, h4, h5, h6 {
 				a {
 					color: #363333; font-size: 13px; font-family: $Helv; font-weight: 600; letter-spacing: -0.1px;
 					position: relative;
+					@include respond-to(sm) {
+						font-size: 15px;
+					}
 					&:after {
 						content: '';
 						display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);

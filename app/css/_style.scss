@@ -52,21 +52,50 @@
 						}
 
 						li {
-							display: inline-block; margin-right: 10px;
-							@include respond-to(lg) {margin-right: 0;};
+							display: inline-block; margin-right: 10px; position: relative;
+							@include respond-to(lg) {margin-right: 0;}
+							@include respond-to(sm) {
+								padding: 0 5px;
+							}
+							&:first-child {
+								@include respond-to(sm) {
+									padding: 0 5px 0 0;
+								}
+							}
 							&:last-child {
 								margin-right: 0;
+								@include respond-to(sm) {
+									padding: 0 0 0 5px;
+								}
+								&:after {
+									display: none;
+								}
+							}
+							&:after {
+								content: '';
+								display: none; width: 1px; height: 80%; position: absolute; right: -3px; top: 50%; transform: translateY(-50%);
+								background: #ffffff;
+								@include respond-to(sm) {display: block;}
 							}
 							a {
 								color: #ffffff; font-size: 13px; font-family: $Helv; text-transform: uppercase; letter-spacing: 0.8px; line-height: 21px;
 								display: inline-block; position: relative;
+								@include respond-to(sm) {
+									text-decoration: underline;
+								}
 								&:after {
 									content: '';
 									display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
 									background: #ffffff;
 									transition: width 0.2s ease-out;
+									@include respond-to(sm) {
+										display: none;
+									}
 								}
 								&:hover {
+									@include respond-to(sm) {
+										text-decoration: none;
+									}
 									&:after {
 										width: 100%;
 									}
