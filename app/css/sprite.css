@@ -1,0 +1,138 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-Favorites {
+  background-image: url(../img/sprite.png);
+  background-position: -80px -64px;
+  width: 23px;
+  height: 30px;
+}
+.icon-blocked {
+  background-image: url(../img/sprite.png);
+  background-position: -138px -65px;
+  width: 10px;
+  height: 10px;
+}
+.icon-comment-minus {
+  background-image: url(../img/sprite.png);
+  background-position: -104px -23px;
+  width: 22px;
+  height: 22px;
+}
+.icon-comment-plus {
+  background-image: url(../img/sprite.png);
+  background-position: -104px -45px;
+  width: 22px;
+  height: 22px;
+}
+.icon-delete {
+  background-image: url(../img/sprite.png);
+  background-position: -127px -65px;
+  width: 11px;
+  height: 11px;
+}
+.icon-facebook {
+  background-image: url(../img/sprite.png);
+  background-position: -40px -64px;
+  width: 40px;
+  height: 39px;
+}
+.icon-good {
+  background-image: url(../img/sprite.png);
+  background-position: 0px 0px;
+  width: 64px;
+  height: 64px;
+}
+.icon-google-plus {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -64px;
+  width: 40px;
+  height: 39px;
+}
+.icon-header-slide {
+  background-image: url(../img/sprite.png);
+  background-position: -127px -76px;
+  width: 10px;
+  height: 12px;
+}
+.icon-ico-toggle {
+  background-image: url(../img/sprite.png);
+  background-position: -104px 0px;
+  width: 23px;
+  height: 23px;
+}
+.icon-likes {
+  background-image: url(../img/sprite.png);
+  background-position: -127px -38px;
+  width: 16px;
+  height: 14px;
+}
+.icon-list-active {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -103px;
+  width: 25px;
+  height: 21px;
+}
+.icon-list {
+  background-image: url(../img/sprite.png);
+  background-position: -25px -103px;
+  width: 25px;
+  height: 21px;
+}
+.icon-redact {
+  background-image: url(../img/sprite.png);
+  background-position: -127px -23px;
+  width: 15px;
+  height: 15px;
+}
+.icon-search {
+  background-image: url(../img/sprite.png);
+  background-position: -50px -103px;
+  width: 23px;
+  height: 21px;
+}
+.icon-tile-active {
+  background-image: url(../img/sprite.png);
+  background-position: -127px 0px;
+  width: 21px;
+  height: 23px;
+}
+.icon-tile {
+  background-image: url(../img/sprite.png);
+  background-position: -104px -67px;
+  width: 21px;
+  height: 23px;
+}
+.icon-views-blue {
+  background-image: url(../img/sprite.png);
+  background-position: -64px -39px;
+  width: 34px;
+  height: 24px;
+}
+.icon-views {
+  background-image: url(../img/sprite.png);
+  background-position: -127px -52px;
+  width: 17px;
+  height: 13px;
+}
+.icon-vk {
+  background-image: url(../img/sprite.png);
+  background-position: -64px 0px;
+  width: 40px;
+  height: 39px;
+}

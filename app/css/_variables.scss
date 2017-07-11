@@ -1,0 +1,28 @@
+// colors
+$main-color-1: #464646;
+$main-color-2: #1d84aa;
+$main-color-3: #d1d1d1;
+
+$MRP-Reg: 'MyriadPro-Regular', sans-serif;
+$MRP-It: 'MyriadPro-It', sans-serif;
+$MRP-BIt: 'MyriadPro-BoldIt', sans-serif;
+$Helv: Helvetica, sans-serif;
+$PTSans: 'PTC55F', sans-serif; 
+
+//stefan
+$MPBSE-It: 'MyriadProBlackSemiExtIt', sans-serif;
+$PTSC-Bold: 'ptsanscaptionbold', sans-serif;
+
+
+h2 {
+	@include font-type($PTSans, 32px, 38px, 0.5px); margin-bottom: 0;
+	color: #464646;
+}
+
+
+h3 {font-family: $Helv;}
+h4 {@include font-type($PTSans, 14px, 18.5px, 0.5px); color: #464646; }
+a {font-family: $Helv;}
+
+h2 {@include respond-to(sm) {text-align: center;};}
+h3 {@include respond-to(sm) {text-align: center;};}

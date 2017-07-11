@@ -1,0 +1,133 @@
+@import 'bower_components/reset-css/reset.scss';
+@import 'bower_components/bootstrap/dist/css/bootstrap.min';
+@import 'bower_components/font-awesome/scss/font-awesome';
+@import 'bower_components/owl.carousel/dist/assets/owl.carousel.min';
+@import 'bower_components/owl.carousel/dist/assets/owl.theme.default.min';
+@import 'bower_components/lazyYT/lazyYT';
+
+@mixin font-face($font-family, $file-path) {
+
+	@font-face {
+		font-family: $font-family;
+		src: url('../fonts/' + $file-path + '/' + $file-path + '.eot');
+		src: url('../fonts/' + $file-path + '/' + $file-path + '.eot') format('embedded-opentype'),
+		url('../fonts/' + $file-path + '/' + $file-path + '.woff2') format('woff2'),
+		url('../fonts/' + $file-path + '/' + $file-path + '.woff') format('woff'),
+		url('../fonts/' + $file-path + '/' + $file-path + '.ttf') format('truetype'),
+		url('../fonts/' + $file-path + '/' + $file-path + '.svg#TTDrugsThin') format('svg');      
+
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		@font-face {
+			font-family: $font-family;
+			src: url('../fonts/' + $file-path + '/' + $file-path + '.svg##{$font-family}') format('svg');
+		}
+	}
+}
+
+// Используй это миксин для всего конфига!
+@mixin font-type($font-family, $font-size, $line-height, $letter-spacing) {
+	font-family: $font-family;
+	font-size: $font-size;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+}
+
+/* Определяем шрифты */
+$main-font: 'PT Sans Narrow', sans-serif;
+
+body {
+	&.onload {overflow:hidden;}
+
+	/* устанавливаем оптимальный вертикальный ритм */
+	@include font-type($main-font, 14px, 20px, 0px);
+	
+	/* сглаживание шрифтов в вебките */
+	-webkit-font-smoothing: subpixel-antialiased;
+			font-smoothing: subpixel-antialiased;
+	* {
+		margin: 0; padding: 0;
+	}
+	
+}
+
+a {
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+form {
+	input,
+	select,
+	textarea {
+		-webkit-appearance: none;
+		text-overflow: ellipsis;
+		outline: none;
+
+		&:focus,
+		&:active {
+			text-overflow: ellipsis;
+		}
+	}
+
+	textarea {
+    	resize: vertical;
+	}
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* выделение текста */
+// ::-moz-selection {
+//     background: red;
+//     text-shadow: none;
+// }
+
+// ::selection {
+//     background: red;
+//     text-shadow: none;
+// }
+
+
+// =======================================================================// 
+//                           Миксин адаптации                             //        
+// =======================================================================// 
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+  @else if $media == xs {
+    @media only screen and (max-width: 481px) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (max-width: 767px) { @content; }
+  }
+  @else if $media == md {
+   @media only screen and(max-width: 991px) { @content; }
+  }
+  @else if $media == lg {
+   @media only screen and (max-width: 1199px) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (max-width: 1300px) { @content; }
+  }
+}

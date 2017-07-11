@@ -1,0 +1,1237 @@
+/*********************************/
+/********** Typography ***********/
+/*********************************/
+
+
+
+
+/*********************************/
+/*********** Buttons *************/
+/*********************************/
+
+
+
+
+
+/*********************************/
+/******** Class Helpers **********/
+/*********************************/
+.icon {
+	display: inline-block;
+}
+
+.clear {
+	&:after {
+		content: '';
+		display: block; width: 100%; height: 0; padding: 0; margin: 0; clear: both;
+		border: none;
+	}
+}
+
+.flexible {
+	display: flex; justify-content: space-between;
+}
+
+.panel-group .panel-heading + .panel-collapse > .list-group, .panel-group .panel-heading + .panel-collapse > .panel-body  {
+	border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@include respond-to(sm) {
+		text-align: left;
+	}
+}
+
+.dropdown {
+	&-mobile {
+		color: #edecec; font-weight: 700; line-height: 12px; font-size: 13px; font-family: Helvetica, sans-serif; letter-spacing: 0.1px; text-transform: uppercase;
+		margin-bottom: 5px; display: none; position: relative; margin-left: 15px;
+		@include respond-to(sm) {display: inline-block;}
+		&:focus {
+			color: #edecec;
+			outline: none;
+		}
+		&:after {
+			content: '\f0d7';
+			font: normal normal normal 14px/1 FontAwesome; font-size: inherit;
+			display: inline-block; position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		&.active {
+			&:after {
+				content: '\f0d8';
+			}
+		}
+	}
+}
+
+
+/*********************************/
+/*********** Modules *************/
+/*********************************/
+.breadcrumbs {
+	margin-bottom: 4px;
+	li {
+		display: inline-block; position: relative; padding-right: 20px;
+		&:after {
+			content: '>>';
+			position: absolute; top: 50%; right: 0; transform: translateY(-50%);
+		}
+		&:last-child {
+			&:after {display: none;}
+			a {
+				pointer-events: none;
+			}
+		}
+		a {
+			color: $main-color-1; font-size: 14px; font-family: $Helv;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.info {
+	padding: 21px 28px;
+	background: #ffffff;
+	@include respond-to(sm) {
+		padding: 21px 15px;
+	}
+	&-header {
+		& > ul {
+			&.head {
+				@extend .flexible;
+				min-height: 150px; padding-bottom: 35px;
+				@include respond-to(sm) {
+					flex-wrap: wrap;
+				}
+				& > li {
+					&:first-child {
+						max-width: 60%;
+						@include respond-to(md) {
+							max-width: 50%; margin-bottom: 15px;
+						}
+						@include respond-to(sm) {
+							width: 100%; max-width: 100%;
+						}
+					}
+					&:last-child {
+						text-align: right;
+						@include respond-to(sm) {
+							text-align: left;
+							width: 100%;
+						}
+					}
+					h4 {
+						color: $main-color-1; font-size: 13px; font-family: $PTSans;
+					}
+					h1 {
+						color: $main-color-1; font-size: 38px; font-family: $PTSans; line-height: 37px;
+						margin-bottom: 1px;
+						&:last-child {margin-bottom: 0;}
+						@include respond-to(sm) {
+							font-size: 28px; line-height: 32px;
+						}
+						span {
+							font-size: 28px; text-transform: uppercase; letter-spacing: 1px;
+							@include respond-to(sm) {
+								font-size: 20px; line-height: 24px;
+							}
+							em {
+								font-size: 38px;
+								@include respond-to(sm) {
+									font-size: 28px; line-height: 32px;
+								}
+							}
+						}
+					}
+					h5 {
+						@include font-type($PTSans, 14px, 18px, 1.5px);
+						font-weight: 600; 
+					}
+					p {
+						color: $main-color-1; font-size: 13px; font-family: $Helv; text-align: left; letter-spacing: 0.1px;
+						margin-bottom: 8px;
+					}
+					div {
+						@include font-type($PTSans, 13px, 16px, -0.2px); text-transform: uppercase; color: #464646; text-align: left;
+						float: left; padding-left: 37px; position: relative; margin-top: 8px;
+						@include respond-to(sm) {
+							float: none;
+						}
+
+						i {
+							position: absolute; top: 1px; left: 0;
+						}
+
+						span {
+							@include font-type($PTSans, 13px, 16px, 2px);
+							display: block; margin-top: 2px;
+						}
+					}
+					ul.rating {
+						counter-reset: heading; padding-bottom: 20px;
+						li {
+							color: $main-color-1; font-size: 22px;
+							display: inline-block; position: relative;
+							cursor: pointer;
+							&:after {
+								counter-increment: heading;
+								content: counter(heading);
+								color: $main-color-1; font-size: 11px; font-family: $PTSans;
+								position: absolute; left: 50%; bottom: -20px; transform: translateX(-50%);
+							}
+							&:hover {
+								color: #847c7c;
+								i {
+									top: -3px;
+									text-shadow: 0 3px 2px rgba(70,70,70,0.6);
+								}
+							}
+							i {
+								font-size: 25px; text-shadow: 0 0 0 $main-color-1;
+								position: relative; top: 0;
+								transition: top 0.2s ease-out, text-shadow 0.2s ease-out;
+							}
+						}
+					}
+					ul.contact-icons {
+						position: absolute;
+						right: -33px; top: 4px;
+						@include respond-to(sm) {display: none;}
+						&:hover {
+							li {
+								a {
+									opacity: 0.8;
+								}
+							}
+						}
+						@include respond-to(sm) {right: 30px; top: -60px;};
+						@include respond-to(xs) {right: 0; top: 90px;};
+
+						li {
+							height: 39px; margin-bottom: 5px;
+							&:last-child {margin-bottom: 0;}
+							@include respond-to(sm) {display: inline-block;};
+							@include respond-to(xs) {display: block; };
+							a {
+								display: inline-block;height: 39px;
+								transition: opacity 0.2s ease-out;
+								&:hover {
+									opacity: 1;
+								}
+								i {
+									opacity: 1;
+								}
+							}
+						}
+					}
+					ul.rate-results {
+						display: inline-block;
+
+						li {text-align: left;}
+
+						li:first-child {
+							border-bottom: 2px solid #acacac; 
+							font-size: 14px;
+						}
+
+						span.main-result {
+							@include font-type($Helv, 39px, 39px, 0px);
+							color: $main-color-2; font-weight: 700;
+							@include respond-to(sm) {
+								font-size: 32px;
+							}
+						}
+						span.main-votes {
+							color: $main-color-3; font-size: 17px;
+							@include respond-to(sm) {
+								font-size: 15px;
+							}
+						}
+
+						span.imb-result {
+							@include font-type($Helv, 17px, 32px, 0px);
+							color: $main-color-1; font-family: $Helv; 
+							font-weight: bold;
+							@include respond-to(sm) {
+								font-size: 15px;
+							}
+						}
+						span.imb-votes {
+							color: $main-color-3; font-size: 17px;
+							@include respond-to(sm) {
+								font-size: 15px;
+							}
+						}
+
+					}
+				}
+			}
+			&.tabs {
+				margin-left: -14px; padding-left: 18px; margin-top: -24px;
+				border-bottom: solid 1px rgba(0,0,0,0.18);
+				@include respond-to(sm) {
+					margin-left: 0; padding-left: 0;
+				}
+				li {
+					display: inline-block; padding-right: 10px; margin-right: 8px; padding-bottom: 3px;
+					border-right: solid 1px rgba(0,0,0,0.18);
+					@include respond-to(sm) {
+						padding-right: 6px; margin-right: 6px;
+					}
+					&.active {
+						border-right: solid 1px $main-color-2;
+						a {
+							color: $main-color-2;
+							&:after {
+								background: $main-color-2;
+							}
+						}
+					}
+					&.addition {
+						border-right: solid 1px #2f8102;
+						a {
+							color: #2f8102;
+							padding-right: 15px; padding-left: 4px;
+							&:before {
+								content: '';
+								display: block; position: absolute; right: 0; top: 5px;
+								border-top: solid 7px #2f8102;
+								border-left: solid 5px transparent;
+								border-bottom: solid 7px transparent;
+								border-right: solid 5px transparent;
+							}
+							&:after {
+								background: #2f8102;
+							}
+						}
+					}
+					&:last-child {
+						padding-right: 0; margin-right: 0;
+						border-right: none;
+					}
+					a {
+						color: $main-color-1; font-size: 14px; font-family: $PTSans; text-transform: uppercase; letter-spacing: 0.7px;
+						position: relative;
+						@include respond-to(sm) {
+							font-size: 12px;
+						}
+						span {
+							font-size: 25px; line-height: 18px;
+							display: inline-block; position: relative; top: 4px; left: -4px;
+						}
+						&:after {
+							content: '';
+							display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+							background: $main-color-1;
+							transition: width 0.2s ease-out;
+						}
+						&:hover {
+							&:after {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&-sidebar {
+		padding-top: 33px;
+		@include respond-to(sm) {
+			margin-bottom: 15px; padding-bottom: 10px;
+			border-bottom: solid 1px #ececec;
+		}
+		h3 {
+			color: #7a7a7a; font-size: 13px; font-family: $Helv; white-space: nowrap; text-overflow: ellipsis; letter-spacing: -0.15px;
+			margin-bottom: 8px;
+			overflow: hidden;
+			@include respond-to(sm) {
+				text-align: left;
+			}
+		}
+		ul {
+			margin-bottom: 17px;
+			li {
+				line-height: initial;
+				margin-bottom: 4px;
+				&:last-child {margin-bottom: 0;}
+				a {
+					color: #363333; font-size: 13px; font-family: $Helv; font-weight: 600; letter-spacing: -0.1px;
+					position: relative;
+					&:after {
+						content: '';
+						display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+						background: #363333;
+						transition: width 0.2s ease-out;
+					}
+					&:hover {
+						&:after {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+	&-body {
+		padding-top: 6px;
+		& > figure {
+			width: 100%; margin-bottom: 30px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.content {
+	&-info {
+		margin-bottom: 40px; position: relative;
+		&.h-und {
+			h2 {
+				border-bottom: 1px solid #f4f4f4;
+			}
+		}
+		& > figure {
+			width: 320px; float: left; padding-right: 25px; margin-bottom: 20px;
+			background: #ffffff;
+			@include respond-to(lg) {
+				width: 280px;
+			}
+			@include respond-to(md) {
+				width: 200px;
+			}
+			@include respond-to(sm) {
+				width: 180px;
+			}
+			@include respond-to(xs) {
+				width: 100%; float: none; padding-right: 0;
+			}
+			img {
+				width: 100%;
+			}
+		}
+		h2 {
+			color: $main-color-1; font-size: 26px; font-family: $PTSans; letter-spacing: -0.1px; line-height: 28px;
+			margin-bottom: 13px; padding-bottom: 5px; position: relative; padding-right: 100px;
+		}
+		p {
+			color: $main-color-1; font-size: 13px; font-family: $PTSans; line-height: 16px; letter-spacing: -0.02px;
+			margin-bottom: 13px;
+			b {
+				font-weight: 700; font-family: $Helv; letter-spacing: 0.13px;
+			}
+		}
+		& > div {
+			@extend .flexible;
+			margin-top: 14px;
+			@include respond-to(sm) {
+				flex-wrap: wrap;
+			}
+			ul {
+				&:first-child {
+					@include respond-to(sm) {
+						width: 100%; margin-bottom: 15px;
+					}
+					li {
+						color: $main-color-1; font-size: 10px; font-family: $PTSans; line-height: 10px; letter-spacing: 0.4px;
+						padding-right: 5px;
+						border-right: solid 1px $main-color-1;
+						&:first-child {
+							font-weight: 700;
+						}
+						&:last-child {
+							padding-right: 0;
+							border-right: none;
+						}
+					}
+				}
+				&:last-child {
+					padding-top: 4px;
+					@include respond-to(md) {
+						padding-top: 0;
+					}
+					@include respond-to(sm) {
+						width: 100%;
+					}
+					li {
+						margin-right: 15px;
+						&:last-child {
+							margin-right: 0;
+						}
+						a {
+							color: $main-color-1; font-size: 9px; font-family: $PTSans; font-weight: 700; letter-spacing: 1px;
+							display: inline-block; position: relative;
+							&:after {
+								content: '';
+								display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+								background: $main-color-1;
+								transition: width 0.2s ease-out;
+							}
+							&:hover {
+								&:after {
+									width: 100%;
+								}
+								i {
+									opacity: 1;
+								}
+							}
+							i {
+								position: relative; margin-right: 4px;
+								opacity: 0.36;
+								transition: opacity 0.2s ease-out;
+								&.icon {
+									&-views {
+										top: 3px;
+									}
+									&-likes {
+										top: 3px;
+									}
+									&-blocked {
+										top: 1px;
+									}
+								}
+							}
+						}
+					}
+				}
+				li {
+					display: inline-block;
+				}
+			}
+		}
+		a.redact {
+			color: $main-color-1; font-size: 10px; font-family: $PTSans; font-weight: 700;
+			position: absolute; right: 0; top: 0;
+			&:after {
+				content: '';
+				display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+				background: $main-color-1;
+				transition: width 0.2s ease-out;
+			}
+			&:hover {
+				&:after {
+					width: 100%;
+				}
+				i {
+					opacity: 1;
+				}
+			}
+			i {
+				margin-right: 15px; position: relative; top: 4px;
+				opacity: 0.36;
+				transition: opacity 0.2s ease-out;
+			}
+		}
+	}
+}
+.film {
+	&-list {
+		&-control {
+			@extend .flexible;
+			justify-content: flex-end; margin-bottom: 27px;
+			&:hover {
+				li {
+					a {
+						opacity: 0.6;
+					}
+				}
+			}
+			li {
+				align-self: center; margin-right: 11px;
+				&:last-child {
+					margin-right: 0;
+				}
+				&.active {
+					pointer-events: none;
+					i {
+						opacity: 0;
+						&.icon-list,
+						&.icon-tile {
+							&-active {
+								opacity: 1;
+							}
+						}
+					}
+				}
+				a {
+					display: inline-block; position: relative;
+					transition: opacity 0.2s ease-out;
+					&:hover {
+						opacity: 1;
+					}
+					i {
+						&.icon-list,
+						&.icon-tile {
+							&-active {
+								position: absolute; left: 0; top: 0;
+								opacity: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		&-items {
+			&.tile {
+				@extend .flexible;
+				flex-wrap: wrap; justify-content: flex-start;
+				margin: -20px -8px;
+				li {
+					width: calc(20% - 16px); margin: 20px 8px; position: relative;
+					@include respond-to(md) {
+						width: calc(25% - 16px);
+					}
+					@include respond-to(xs) {
+						width: calc(50% - 16px);
+					}
+					& > a {
+						&:hover {
+							figure {
+								img {
+									opacity: 0.59;
+								}
+							}
+						}
+					}
+					figure {
+						margin-bottom: 10px; position: relative;
+						img {
+							width: 100%;
+						}
+						figcaption {
+							position: absolute; right: 7px; top: -5px; width: 38px; height: 38px; z-index: 1;
+							span {
+								font-size: 13px; font-family: $Helv; font-weight: 700; text-transform: uppercase; line-height: 15px;
+								position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+							}
+						}
+						&.new {
+							figcaption {
+								background: #fccc2f;
+								span {
+									color: #353637;
+								}
+							}
+						}
+						&.top {
+							figcaption {
+								background: #6abed9;
+								span {
+									color: #ffffff;
+								}
+							}
+						}
+					}
+					h5 {
+						color: #353637; font-size: 13px; font-family: $Helv; font-weight: 700;
+						margin-bottom: 10px;
+					}
+					h6 {
+						color: #353637; font-size: 13px; font-family: $PTSans; font-weight: 700;
+						margin-bottom: 10px; margin-top: 15px; display: none;
+					}
+					p {
+						color: #353637; font-size: 13px; font-family: $Helv;
+						&.description {
+							display: none;
+						}
+					}
+				}
+			}
+			&.list {
+				li {
+					@extend .clear;
+					width: 100%; margin: 0 0 30px; position: relative;
+					padding-bottom: 10px;
+					border-bottom: solid 1px #ececec;
+					&:last-child {
+						margin-bottom: 0;
+						border-bottom: none;
+					}
+					& > a {
+						&:hover {
+							figure {
+								img {
+									opacity: 0.59;
+								}
+							}
+						}
+					}
+					figure {
+						margin-bottom: 10px; float: left; margin-right: 20px; position: relative; width: 280px;
+						@include respond-to(lg) {
+							width: 240px;
+						}
+						@include respond-to(md) {
+							width: 200px;
+						}
+						@include respond-to(sm) {
+							width: 140px;
+						}
+						@include respond-to(xs) {
+							margin-right: 0; width: 100%; float: none; margin-bottom: 15px;
+						}
+						img {
+							width: 100%;
+						}
+						figcaption {
+							position: absolute; right: 7px; top: -5px; width: 38px; height: 38px; z-index: 1;
+							span {
+								font-size: 13px; font-family: $Helv; font-weight: 700; text-transform: uppercase; line-height: 15px;
+								position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+							}
+						}
+						&.new {
+							figcaption {
+								background: #fccc2f;
+								span {
+									color: #353637;
+								}
+							}
+						}
+						&.top {
+							figcaption {
+								background: #6abed9;
+								span {
+									color: #ffffff;
+								}
+							}
+						}
+					}
+					h5 {
+						color: #353637; font-size: 28px; font-family: $Helv; font-weight: 700;
+						margin-bottom: 10px; padding-left: 300px;
+						@include respond-to(lg) {
+							padding-left: 260px;
+						}
+						@include respond-to(md) {
+							padding-left: 220px;
+						}
+						@include respond-to(sm) {
+							padding-left: 160px;
+						}
+						@include respond-to(xs) {
+							padding-left: 0;
+						}
+					}
+					h6 {
+						color: #353637; font-size: 18px; font-family: $PTSans; font-weight: 700;
+						margin-bottom: 10px; margin-top: 15px; padding-left: 300px;
+						@include respond-to(lg) {
+							padding-left: 260px;
+						}
+						@include respond-to(md) {
+							padding-left: 220px;
+						}
+						@include respond-to(sm) {
+							padding-left: 160px;
+						}
+						@include respond-to(xs) {
+							padding-left: 0;
+						}
+					}
+					p {
+						color: #353637; font-size: 14px; font-family: $Helv;
+						padding-left: 300px;
+						@include respond-to(lg) {
+							padding-left: 260px;
+						}
+						@include respond-to(md) {
+							padding-left: 220px;
+						}
+						@include respond-to(sm) {
+							padding-left: 160px;
+						}
+						@include respond-to(xs) {
+							padding-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	&-about {
+		display: flex; 
+		margin-bottom: 21px;
+		@include respond-to(md) {
+			flex-wrap: wrap;
+		}
+		& > div {
+			&:first-child {
+				width: 40%; padding-right: 25px;
+				@include respond-to(md) {
+					width: 100%; padding-right: 0;
+				}
+
+				figure {
+					img {width: 100%; height: auto;}
+				}
+				ul {
+					@extend .clear;
+					margin-top: 20px;
+					@include respond-to(sm) {text-align: center; margin-bottom: 20px;};
+
+					li {
+						@include font-type($PTSans, 13px, 16px, -0.2px); text-transform: uppercase; color: #464646;
+						float: left; width: 50%; padding-left: 55px; position: relative;
+						@include respond-to(md) {margin-bottom: 20px;}
+						@include respond-to(sm) {
+							text-align: left;
+							padding-left: 45px;
+						}
+
+						i {
+							position: absolute; top: 2px; left: 6px;
+						}
+
+						span {
+							@include font-type($PTSans, 13px, 16px, 2px);
+							display: block; margin-top: 2px;
+						}
+					}
+				}
+			}
+			&:last-child {
+				width: 60%; padding-bottom: 54px; display: flex; flex-wrap: wrap;
+				@include respond-to(md) {
+					width: 100%;
+				}
+
+				.top_about {
+					width: 100%; padding-top: 7px; margin-bottom: 30px;
+
+					h3 {
+						@include font-type($Helv, 26px, 30px, -0.2px);
+						margin: 0 0 17px;
+						@include respond-to(sm) {
+							@include font-type($Helv, 25px, 35px, 0px);
+						};
+					}
+					p {
+						@include font-type($Helv, 13px, 16px, 0); text-align: left;
+						margin-bottom: 26px;
+						@include respond-to(sm) {margin-bottom: 10px;}
+						&:last-child {
+							margin-bottom: 0;
+						}
+
+					}
+				}
+
+				.bottom_trailers {
+					width: 100%; align-self: flex-end;
+					h3 {
+						@include font-type($Helv, 26px, 30px, -0.2px);
+						margin: 0 0 14px; width: 100%;
+					}
+
+					ul {
+						display: flex; justify-content: space-between;
+						@include respond-to(xs) {flex-direction: column;};
+
+						li {
+							display: block;
+							width: calc(50% - 10px);
+
+							&:first-child {
+								@include respond-to(xs) {width: 100%; padding: 0; margin-bottom: 30px;};
+							}
+							&:last-child {
+								@include respond-to(xs) {width: 100%; padding: 0;};
+							}
+
+							.ytp-thumbnail, .lazyYT-image-loaded {
+								filter: grayscale(100%);
+								transition: 0.4s ease-in-out;
+
+								&:hover {filter: grayscale(0);}
+							}
+
+							.lazyYT-container .html5-info-bar {display: none;}
+
+							.ytp-thumbnail:hover {
+
+								.ytp-large-play-button {display: none;}
+							}
+
+							.ytp-large-play-button {
+								width: 60px !important; 
+								height: 60px !important;
+								background: red;
+								position: absolute;
+								border-radius: 50%;
+								display: block;
+								opacity: 0.7;
+								background: url(../img/play-ico.png) no-repeat 0 0 / cover !important;
+
+								&:after {
+									background: url(../img/play-ico.png) no-repeat 0 0 / cover !important;
+									position: absolute;
+								}
+
+								svg {display: none;}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.nav {
+	&-list {
+		padding-left: 20px; margin-bottom: 0;
+		@include respond-to(sm) {display: none;}
+		li {
+			margin-bottom: 0;
+			&:first-child {
+				a {
+					color: #edecec; font-weight: 700; line-height: 12px;
+					margin-bottom: 5px;
+					border-bottom: solid 1px #edecec;
+					transition: border 0.2s ease-out;
+					&:after {display: none;}
+					&:hover {border-color: transparent;}
+				}
+			}
+			a {
+				color: #ffffff; font-size: 13px; font-family: $Helv; letter-spacing: 0.1px; line-height: 20px;
+				display: inline-block; position: relative;
+				&:after {
+					content: '';
+					display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+					background: #ffffff;
+					transition: width 0.2s ease-out;
+				}
+				&:hover {
+					&:after {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.actors-carousel {
+	margin-bottom: 19px;
+	h2 {
+		color: $main-color-1; font-size: 26px; font-family: $PTSans; letter-spacing: -0.2px;
+		margin-bottom: 15px; padding-bottom: 7px;
+		border-bottom: 1px solid #ececec;
+	}
+
+	figcaption {
+		color: $main-color-1; font-size: 13px; font-family: $PTSans; line-height: 16px;
+		padding-top: 7px;
+	}
+}
+
+.episodes-list {
+	position: relative;
+
+	h2 {
+		color: $main-color-1; font-size: 26px; font-family: $PTSans; letter-spacing: -0.2px;
+		margin-bottom: 4px;
+	}
+
+	h4 {
+		color: $main-color-1; @include font-type($MRP-Reg, 13px, 14px, -0.2px); text-transform: uppercase;
+		
+		a {
+			cursor: pointer;
+		}
+
+		i {
+			transition: all 0.2s linear; 
+			position: relative;
+			top: -6px;
+		}
+	}
+
+	.icon.down {transform:rotate(90deg);}
+
+	.panel-default {
+		& > .panel-heading {
+			width: 90px; background: white; padding: 18px 0 0 !important; margin-left: 14px;
+			a {
+
+			}
+		}
+	}
+	.collapsing {
+		width: 100%;
+	}
+
+	.panel {
+		margin: 0 -1px -1px;
+		border-radius: 0;  border-left: none; border-right: none; border-bottom: none; border-top: solid 1px rgba(70,70,70,0.06); box-shadow: none;
+		overflow: auto; 
+		&:last-child {
+			padding-bottom: 3px;
+			border-bottom: solid 1px rgba(70,70,70,0.06);
+		}
+
+		&-heading {
+			padding: 14px 0;
+		}
+
+		&-body {
+			padding: 0 0 5px;
+			border: none; border-top: 1px solid white;
+		}
+
+		&-group {padding-bottom: 0; margin-bottom: 0;}
+	}
+
+	table, thead, tbody, tr, th, td {
+		border: none !important;
+		@include font-type($MRP-Reg, 13px, 16px, 0px);
+
+		// &:hover {cursor: pointer;}
+	}
+	table {
+		margin-bottom: 0;
+		@include respond-to(md) {
+			min-width: 750px; overflow-x: auto;
+		}
+		th {
+			small {
+				font-size: 100%; text-decoration: underline;
+			}
+		}
+		tr {
+			td {
+				&:nth-child(2) {color: #488cac;}
+				&:nth-child(5),
+				&:last-child {
+					font-family: $Helv; font-weight: 600;
+				}
+			}
+		}
+		tr {
+			td {
+				padding: 6px 8px;
+			}
+			th {
+				padding: 5px 8px 3px;
+			}
+		}
+	}
+
+	& > a {
+		@include font-type($PTSans, 14px, 25px, 0.6px);
+		text-align: center;
+		border-radius: 3px; 
+		padding: 0 15px;
+
+		position: absolute;
+		color: #488cac;
+		border: 1px solid #488cac;
+		right: 50px;
+		bottom: -52px;
+		@include respond-to(lg) {right: 0;};
+		@include respond-to(sm) {text-align: center; width: 100%;};
+		&:hover {
+			color: #ffffff;
+			background: #488cac;
+			i {
+				color: #ffffff;
+			}
+		}
+
+		i {
+			margin-right: 14px;
+			font-weight: 700; line-height: 25px;
+		}
+	}
+}
+
+.comments {
+	padding-top: 60px;
+	@include respond-to(sm) {padding-top: 75px;};
+
+	h2 {
+		margin-bottom: 40px; letter-spacing: -1px;
+	}
+
+	// .person, .comment {display: inline-block;}
+	& > ul {
+		padding-bottom: 10px;
+		display: flex; flex-direction: row;
+		& > li {
+			&:first-child {
+				text-align: center; margin-right: 22px; width: 82px;
+				@include respond-to(xs) {
+					width: 60px;
+				}
+
+				figure {
+					width: 82px; height: 82px; margin: 0 auto;
+					overflow: hidden;
+					border-radius: 50%;
+					@include respond-to(sm) {margin: 0 auto;}
+					@include respond-to(xs) {
+						width: 60px; height: 60px;
+					}
+
+					img {width: 100%; height: auto;}
+				}
+
+				ul {
+					display: block;
+					&:hover {
+						li {
+							a {
+								opacity: 0.6;
+							}
+						}
+					}
+
+					li {
+						display: inline-block;
+						margin-right: 10px;
+						a {
+							display: inline-block; height: 22px;
+							transition: opacity 0.3s ease-out;
+							&:hover {
+								opacity: 1;
+							}
+						}
+
+						&:last-child {margin-right: 0;}
+
+						.icon {display: inline-block;}
+					}
+				}
+			}
+			&:last-child {
+
+				span {
+					color: $main-color-1; @include font-type($PTSans, 15px, 21px, 1px); line-height: 25px;
+					margin-bottom: 10px; display: block; 
+
+					@include respond-to(sm) {text-align: center;}
+				}
+
+				p {
+					color: $main-color-1; @include font-type($PTSans, 14px, 20px, 0.6px); text-align: justify;
+					width: 100%; padding: 10px;
+					border: 1px solid #ececec;  border-radius: 3px;
+					overflow: auto;
+					@include respond-to(xs) {
+						font-size: 13px; line-height: 16px;
+					}
+				}
+			}
+		}
+	}
+}
+
+// .my-top {
+// 	@extend .flexible;
+// 	margin-bottom: 32px;
+// 	ul {
+// 		&:first-child {
+// 			min-width: 230px;
+// 			li {
+// 				padding-left: 60px; margin-bottom: 20px; position: relative;
+// 				&:first-child {
+// 					i {color:#fccc2f;}
+// 				}
+// 				&:nth-child(2) {
+// 					i {color:#d3d3d3;}
+// 				}
+// 				&:last-child {
+// 					i {color:#fc942f;}
+// 				}
+// 				& > i {
+// 					position: absolute; left: 0; top: 0; font-size: 30px;
+// 				}
+// 				h5 {}
+// 				p {}
+// 				a {
+// 					position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+// 					opacity: 0.6;
+// 					&:hover {
+// 						opacity: 1;
+// 					}
+// 				}
+// 			}
+// 		}
+// 		&:last-child {
+// 			@extend .clear;
+// 			li {
+// 				float: left; margin-right: 17px;
+// 				&:first-child {
+// 					figcaption {background:#fccc2f;}
+// 				}
+// 				&:nth-child(2) {
+// 					figcaption {background:#d3d3d3;}
+// 				}
+// 				&:last-child {
+// 					margin-right: 0;
+// 					figcaption {background:#fc942f;}
+// 				}
+// 				figure {
+// 					position: relative;
+// 					img {}
+// 					figcaption {
+// 						color: $main-color-1; font-size: 26px; font-family: $Helv; font-weight: 700; text-align: center; line-height: 36px;
+// 						width: 38px; height: 37px; display: block; position: absolute; top: -5px; left: -8px;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// Cycles
+@for $i1 from 0 through 10 {
+	ul.head li .rating.rating-#{$i1} {
+		
+		@for $i2 from 0 through $i1 {
+			& li:nth-child(#{$i2}) {
+				color: $main-color-2;
+				&:after {
+					color: $main-color-2;
+				}
+				&:hover {
+					color: #25b1e4;
+					&:after {
+						color: #25b1e4;
+					}
+				}
+			}
+		}
+	}
+}
+/*RATEING RATEING RATEING RATEING RATEING RATEING RATEING*/
+// .rating {display: inline-block; border: none;}
+// .rating:hover {cursor: pointer;}
+// /*Rate*/
+// input[type="radio"] {display: none;}
+
+// label {
+//   float: right;
+//   width: 20px; height: 20px; 
+//   overflow: hidden;
+//   white-space: nowrap;
+//   cursor: pointer;
+//   text-indent: -9999px;
+// }
+
+// input[type="radio"] + label {background: url(../img/star-black.png) no-repeat 0 0 / cover;}
+// input[type="radio"]:checked ~ label {
+//   background: url(../img/star-colored.png) no-repeat 0 0 / cover;
+// }
+
+// input[type="radio"] + label:hover,
+// input[type="radio"] + label:hover ~label {background: url(../img/star-colored.png) no-repeat 0 0 / cover;}
