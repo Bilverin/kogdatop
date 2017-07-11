@@ -898,6 +898,9 @@ h1, h2, h3, h4, h5, h6 {
 		@include respond-to(sm) {display: none;}
 		li {
 			margin-bottom: 0;
+			@include respond-to(sm) {
+				margin-bottom: 5px;
+			}
 			&:first-child {
 				a {
 					color: #edecec; font-weight: 700; line-height: 12px;
@@ -908,9 +911,15 @@ h1, h2, h3, h4, h5, h6 {
 					&:hover {border-color: transparent;}
 				}
 			}
+			&:last-child {
+				margin-bottom: 0;
+			}
 			a {
 				color: #ffffff; font-size: 13px; font-family: $Helv; letter-spacing: 0.1px; line-height: 20px;
 				display: inline-block; position: relative;
+				@include respond-to(sm) {
+					font-size: 15px;
+				}
 				&:after {
 					content: '';
 					display: block; width: 0%; height: 1px; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
